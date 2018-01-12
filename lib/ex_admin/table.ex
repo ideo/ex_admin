@@ -235,7 +235,10 @@ defmodule ExAdmin.Table do
   def handle_contents({:safe, contents}, field_name) do
     handle_contents contents, field_name
   end
+  def handle_contents(contents, field_name) when is_list(contents) do
+    td(to_string(contents), class: to_class(".td-", field_name))
+  end
   def handle_contents(contents, field_name) do
-    td(to_class(".td-", field_name), contents)
+    td(contents, class: to_class(".td-", field_name))
   end
 end

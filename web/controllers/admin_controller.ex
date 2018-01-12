@@ -15,6 +15,7 @@ defmodule ExAdmin.AdminController do
     render(conn, "admin.html", html: contents, resource: nil, scope_counts: [],
       filters: (if false in defn.index_filters, do: false, else: defn.index_filters))
   end
+
   def dashboard(conn, params) do
     page(conn, Map.put(params, "page", "dashboard"))
   end
