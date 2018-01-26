@@ -144,6 +144,9 @@ defmodule ExAdmin.Table do
     end
   end
 
+  def build_th({{field_name, _}, opts}, table_opts) do
+    build_th(to_string(field_name), opts, table_opts)
+  end
   def build_th({field_name, opts}, table_opts) do
     build_th(to_string(field_name), opts, table_opts)
   end

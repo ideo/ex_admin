@@ -43,7 +43,7 @@ defmodule ExAdmin.ResourceController do
         |> Plug.Conn.assign(:changeset, changeset)
         |> Plug.Conn.assign(:ea_required, changeset.required)
         contents = do_form_view(conn, ExAdmin.Changeset.get_data(changeset), params)
-        render(conn, "admin.html", html: contents, filters: nil)
+        render(conn, ExAdmin.AdminResourceView, "admin.html", html: contents, filters: nil)
       end
 
       defp render_403(conn) do
