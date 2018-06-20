@@ -4,7 +4,8 @@ defmodule ExAdmin.Mixfile do
   @version "0.9.0-dev"
 
   def project do
-    [ app: :ex_admin,
+    [
+      app: :ex_admin,
       version: @version,
       elixir: "~> 1.3",
       elixirc_paths: elixirc_paths(Mix.env),
@@ -24,15 +25,11 @@ defmodule ExAdmin.Mixfile do
   end
 
   def application do
-    [ applications: applications(Mix.env)]
+    [
+      extra_applications: []
+    ]
   end
 
-  defp applications(:test) do
-    [:plug, :cowboy | applications(:prod)]
-  end
-  defp applications(_) do
-    [:gettext, :phoenix, :ecto, :inflex, :scrivener, :scrivener_ecto, :csvlixir, :logger, :ex_queb, :xain]
-  end
   defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
   defp elixirc_paths(_),     do: ["lib", "web"]
 
@@ -61,9 +58,11 @@ defmodule ExAdmin.Mixfile do
   end
 
   defp package do
-    [ maintainers: ["Stephen Pallen", "Roman Smirnov"],
+    [
+      maintainers: ["Stephen Pallen", "Roman Smirnov"],
       licenses: ["MIT"],
       links: %{ "Github" => "https://github.com/smpallen99/ex_admin" },
-      files: ~w(lib priv web README.md package.json mix.exs LICENSE brunch-config.js AdminLte-LICENSE)]
+      files: ~w(lib priv web README.md package.json mix.exs LICENSE brunch-config.js AdminLte-LICENSE)
+    ]
   end
 end
